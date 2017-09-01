@@ -1,0 +1,6 @@
+framework module Pods_Psychology {
+  umbrella header "Pods-Psychology-umbrella.h"
+
+  export *
+  module * { export * }
+}
