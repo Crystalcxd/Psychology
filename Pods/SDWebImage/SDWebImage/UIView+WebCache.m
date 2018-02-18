@@ -15,11 +15,8 @@
 
 NSString * const SDWebImageInternalSetImageGroupKey = @"internalSetImageGroup";
 NSString * const SDWebImageExternalCustomManagerKey = @"externalCustomManager";
-<<<<<<< HEAD
 
 const int64_t SDWebImageProgressUnitCountUnknown = 1LL;
-=======
->>>>>>> origin/master
 
 static char imageURLKey;
 
@@ -86,13 +83,10 @@ static char TAG_ACTIVITY_SHOW;
             [self sd_addActivityIndicator];
         }
         
-<<<<<<< HEAD
         // reset the progress
         self.sd_imageProgress.totalUnitCount = 0;
         self.sd_imageProgress.completedUnitCount = 0;
         
-=======
->>>>>>> origin/master
         SDWebImageManager *manager;
         if ([context valueForKey:SDWebImageExternalCustomManagerKey]) {
             manager = (SDWebImageManager *)[context valueForKey:SDWebImageExternalCustomManagerKey];
@@ -101,7 +95,6 @@ static char TAG_ACTIVITY_SHOW;
         }
         
         __weak __typeof(self)wself = self;
-<<<<<<< HEAD
         SDWebImageDownloaderProgressBlock combinedProgressBlock = ^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             wself.sd_imageProgress.totalUnitCount = expectedSize;
             wself.sd_imageProgress.completedUnitCount = receivedSize;
@@ -110,9 +103,6 @@ static char TAG_ACTIVITY_SHOW;
             }
         };
         id <SDWebImageOperation> operation = [manager loadImageWithURL:url options:options progress:combinedProgressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-=======
-        id <SDWebImageOperation> operation = [manager loadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
->>>>>>> origin/master
             __strong __typeof (wself) sself = wself;
             if (!sself) { return; }
             [sself sd_removeActivityIndicator];
@@ -154,23 +144,16 @@ static char TAG_ACTIVITY_SHOW;
                 targetData = nil;
             }
             
-<<<<<<< HEAD
             // check whether we should use the image transition
             SDWebImageTransition *transition = nil;
             if (finished && (options & SDWebImageForceTransition || cacheType == SDImageCacheTypeNone)) {
                 transition = sself.sd_imageTransition;
             }
-=======
->>>>>>> origin/master
             if ([context valueForKey:SDWebImageInternalSetImageGroupKey]) {
                 dispatch_group_t group = [context valueForKey:SDWebImageInternalSetImageGroupKey];
                 dispatch_group_enter(group);
                 dispatch_main_async_safe(^{
-<<<<<<< HEAD
                     [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock transition:transition cacheType:cacheType imageURL:imageURL];
-=======
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock];
->>>>>>> origin/master
                 });
                 // ensure completion block is called after custom setImage process finish
                 dispatch_group_notify(group, dispatch_get_main_queue(), ^{
@@ -178,11 +161,7 @@ static char TAG_ACTIVITY_SHOW;
                 });
             } else {
                 dispatch_main_async_safe(^{
-<<<<<<< HEAD
                     [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock transition:transition cacheType:cacheType imageURL:imageURL];
-=======
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock];
->>>>>>> origin/master
                     callCompletedBlockClojure();
                 });
             }

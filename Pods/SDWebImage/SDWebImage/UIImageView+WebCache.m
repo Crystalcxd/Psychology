@@ -71,7 +71,6 @@
 
 - (void)sd_setAnimationImagesWithURLs:(nonnull NSArray<NSURL *> *)arrayOfURLs {
     [self sd_cancelCurrentAnimationImagesLoad];
-<<<<<<< HEAD
     NSPointerArray *operationsArray = [self sd_animationOperationArray];
     
     [arrayOfURLs enumerateObjectsUsingBlock:^(NSURL *logoImageURL, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -79,15 +78,6 @@
         id <SDWebImageOperation> operation = [[SDWebImageManager sharedManager] loadImageWithURL:logoImageURL options:0 progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             __strong typeof(wself) sself = wself;
             if (!sself) return;
-=======
-    __weak __typeof(self)wself = self;
-
-    NSPointerArray *operationsArray = [self sd_animationOperationArray];
-
-    [arrayOfURLs enumerateObjectsUsingBlock:^(NSURL *logoImageURL, NSUInteger idx, BOOL * _Nonnull stop) {
-        id <SDWebImageOperation> operation = [[SDWebImageManager sharedManager] loadImageWithURL:logoImageURL options:0 progress:nil completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            if (!wself) return;
->>>>>>> origin/master
             dispatch_main_async_safe(^{
                 [sself stopAnimating];
                 if (sself && image) {
