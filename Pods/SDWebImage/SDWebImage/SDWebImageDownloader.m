@@ -39,8 +39,13 @@
 @property (assign, nonatomic, nullable) Class operationClass;
 @property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, SDWebImageDownloaderOperation *> *URLOperations;
 @property (strong, nonatomic, nullable) SDHTTPHeadersMutableDictionary *HTTPHeaders;
+<<<<<<< HEAD
 @property (strong, nonatomic, nonnull) dispatch_semaphore_t operationsLock; // a lock to keep the access to `URLOperations` thread-safe
 @property (strong, nonatomic, nonnull) dispatch_semaphore_t headersLock; // a lock to keep the access to `HTTPHeaders` thread-safe
+=======
+// This queue is used to serialize the handling of the network responses of all the download operation in a single queue
+@property (strong, nonatomic, nullable) dispatch_queue_t barrierQueue;
+>>>>>>> origin/master
 
 // The session in which data tasks will run
 @property (strong, nonatomic) NSURLSession *session;
@@ -128,9 +133,12 @@
 }
 
 - (void)invalidateSessionAndCancel:(BOOL)cancelPendingOperations {
+<<<<<<< HEAD
     if (self == [SDWebImageDownloader sharedDownloader]) {
         return;
     }
+=======
+>>>>>>> origin/master
     if (cancelPendingOperations) {
         [self.session invalidateAndCancel];
     } else {
@@ -381,12 +389,20 @@ didReceiveResponse:(NSURLResponse *)response
     
     // Identify the operation that runs this task and pass it the delegate method
     SDWebImageDownloaderOperation *dataOperation = [self operationWithTask:task];
+<<<<<<< HEAD
     if ([dataOperation respondsToSelector:@selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)]) {
         [dataOperation URLSession:session task:task willPerformHTTPRedirection:response newRequest:request completionHandler:completionHandler];
     } else {
         if (completionHandler) {
             completionHandler(request);
         }
+=======
+    
+    if ([dataOperation respondsToSelector:@selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)]) {
+        [dataOperation URLSession:session task:task willPerformHTTPRedirection:response newRequest:request completionHandler:completionHandler];
+    } else {
+        completionHandler(request);
+>>>>>>> origin/master
     }
 }
 

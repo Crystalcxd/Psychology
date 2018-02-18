@@ -21,10 +21,13 @@ FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageInternalSetImageGroupKey;
  A SDWebImageManager instance to control the image download and cache process using in UIImageView+WebCache category and likes. If not provided, use the shared manager (SDWebImageManager)
  */
 FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageExternalCustomManagerKey;
+<<<<<<< HEAD
 /**
  The value specify that the image progress unit count cannot be determined because the progressBlock is not been called.
  */
 FOUNDATION_EXPORT const int64_t SDWebImageProgressUnitCountUnknown; /* 1LL */
+=======
+>>>>>>> origin/master
 
 typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable imageData);
 

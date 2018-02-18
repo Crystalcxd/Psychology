@@ -154,10 +154,15 @@ static inline NSString * backgroundImageOperationKeyForState(UIControlState stat
                            completed:completedBlock];
 }
 
+<<<<<<< HEAD
 #pragma mark - Cancel
 
 - (void)sd_cancelImageLoadForState:(UIControlState)state {
     [self sd_cancelImageLoadOperationWithKey:imageOperationKeyForState(state)];
+=======
+- (void)sd_cancelImageLoadForState:(UIControlState)state {
+    [self sd_cancelImageLoadOperationWithKey:[NSString stringWithFormat:@"UIButtonImageOperation%@", @(state)]];
+>>>>>>> origin/master
 }
 
 - (void)sd_cancelBackgroundImageLoadForState:(UIControlState)state {
