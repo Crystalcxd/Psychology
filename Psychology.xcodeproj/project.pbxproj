@@ -165,7 +165,6 @@
 				A4F578871F590BE600EDE8A9 /* Frameworks */,
 				A4F578881F590BE600EDE8A9 /* Resources */,
 				07D306E871A9653FFD74D096 /* [CP] Embed Pods Frameworks */,
-				0CDAEECDCC26959FBABE1708 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,21 +302,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Psychology/Pods-Psychology-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0CDAEECDCC26959FBABE1708 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Psychology/Pods-Psychology-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8703CED46C7BED25A2649225 /* [CP] Check Pods Manifest.lock */ = {
