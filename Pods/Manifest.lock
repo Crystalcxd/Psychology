@@ -16,9 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - MBProgressHUD (1.2.0)
   - RDVTabBarController (1.3.0)
-  - SDWebImage (5.5.2):
-    - SDWebImage/Core (= 5.5.2)
-  - SDWebImage/Core (5.5.2)
+  - SDWebImage (5.6.0):
+    - SDWebImage/Core (= 5.6.0)
+  - SDWebImage/Core (5.6.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -37,8 +37,8 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   RDVTabBarController: 28a5c6546b9991cf2712d59947324c6b06603e14
-  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  SDWebImage: 21b19f56b4226cdfe3aefe4e6848dc43ed129a86
 
 PODFILE CHECKSUM: cc9cfc44f6ab6598dc64011c7ae36ce51df9fe5d
 
-COCOAPODS: 1.9.0.beta.3
+COCOAPODS: 1.9.0
